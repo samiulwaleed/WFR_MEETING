@@ -26,6 +26,11 @@ navigator.mediaDevices.getUserMedia({
 
   socket.on('user-connected', userId => {
     connectToNewUser(userId, stream)
+    setTimeout(function ()
+    {
+      connectToNewUser(userId, stream);
+    },5000
+    )
   })
   // input value
   let text = $("input");
@@ -134,3 +139,5 @@ const setPlayVideo = () => {
   `
   document.querySelector('.main__video_button').innerHTML = html;
 }
+
+
